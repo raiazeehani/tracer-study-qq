@@ -13,7 +13,15 @@
                 <label >Email</label>
                 <input type="email" class= "form-control" name="email" required/>
                 </div>
-                <input type="submit" value="Proses" class="btn btn-primary btn-block"/>
+                <?php foreach ($questions as $row): ?>
+                    <label><?=$row['the_question']?></label>
+                    <select class="form-control" name="question[<?=$row['question_id']?>]">
+                    <?php foreach ($row['options_array'] as $row):?>
+                        <option value="<?=$row?>"><?=$row?></option>
+            <?php endforeach;?>
+            </select>
+            <?php endforeach;?>
+                <input type="submit" value="Proses" class="btn btn-primary btn-block mt-5"/>
                 </form>
                 </div>
             </div>    
